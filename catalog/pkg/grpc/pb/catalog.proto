@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package pb;
+
+
+//The Catalog service definition.
+service Catalog {
+ rpc Get  (GetRequest ) returns (GetReply );
+ rpc List (ListRequest) returns (ListReply);
+}
+
+message GetRequest {
+    int32 id = 1;
+}
+
+message GetReply {
+    Product product = 1;
+}
+
+message ListRequest {}
+
+message ListReply {
+    repeated Product products = 1;
+}
+
+message Product {
+    int32 id = 1;
+    string title = 2;
+    float price = 3;
+}

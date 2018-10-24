@@ -1,0 +1,23 @@
+version: "2"
+services:
+  basket:
+    build:
+      context: .
+      dockerfile: basket/Dockerfile
+    restart: always
+    volumes:
+    - .:/go/src/github.com/jmvargas/go-kit-example
+    container_name: basket
+    ports:
+    - 8800:8081
+  catalog:
+    build:
+      context: .
+      dockerfile: catalog/Dockerfile
+    restart: always
+    volumes:
+    - .:/go/src/github.com/jmvargas/go-kit-example
+    container_name: catalog
+    ports:
+    - 8801:8081
+    - 8802:8082
